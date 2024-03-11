@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 include 'session_timeout.php';
-include 'idleWarning.php';
+
 
 // Check if data is received via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -49,4 +49,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   header('Content-Type: application/json');
   echo json_encode($response);
 }
-?>

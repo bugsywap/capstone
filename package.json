@@ -2,10 +2,10 @@
   "name": "pgallery-widget",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "index.php",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "parcel index.php --open",
+    "build": "parcel build index.php"
   },
   "dependencies": {
     "parcel-bundler": "^1.6.1"

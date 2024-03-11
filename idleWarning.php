@@ -1,6 +1,7 @@
-
 <!DOCTYPE html>
+<html lang="en">
 <html>
+
 <head>
     <style>
         /* Modal styles */
@@ -25,13 +26,16 @@
             text-align: center;
             border-radius: 10px;
         }
+
         @media (max-width: 600px) {
             .modal-content-idle {
-                width: 80%; /* Adjust the width for smaller screens */
+                width: 80%;
+                /* Adjust the width for smaller screens */
             }
         }
     </style>
 </head>
+
 <body>
     <div id="idle-warning-modal" class="modal-idleWarning">
         <div class="modal-content-idle">
@@ -92,4 +96,5 @@
         }
     </script>
 </body>
+
 </html>
