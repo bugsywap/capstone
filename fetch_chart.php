@@ -44,5 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $response = ['success' => false, 'error' => $con->error];
     }
   }
+
+  // Encode the response as JSON
+  header('Content-Type: application/json');
+  echo json_encode($response);
 }
 ?>

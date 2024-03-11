@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
   // Add event listener to the clear button
   const clearButton = document.getElementById("clear-button-tt");
   if (clearButton) {
@@ -34,3 +35,5 @@ function clearAndReset() {
     console.error('There was a problem deleting the row:', error);
   });
 }
+
+
