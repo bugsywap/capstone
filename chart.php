@@ -217,55 +217,55 @@ if (isset($_GET['showid']) && isset($_GET['showname'])) {
     </div>
     <script>
       function insertData(selectElement) {
-        const selectedValue = selectElement.value;
-        const toothNumber = selectElement.parentElement.querySelector('h2').textContent;
-        const type = selectElement.id.startsWith('select-tt') ? 'tt' : 'pt'; // Determine if it's temporary or permanent
-        const data = {
-          toothNumber: toothNumber,
-          type: type,
-          value: selectedValue
-        };
+    const selectedValue = selectElement.value;
+    const toothNumber = selectElement.parentElement.querySelector('h2').textContent;
+    const type = selectElement.id.startsWith('select-tt') ? 'tt' : 'pt'; // Determine if it's temporary or permanent
+    const data = {
+      toothNumber: toothNumber,
+      type: type,
+      value: selectedValue
+    };
 
-        // Send the selected value to the PHP script for insertion
-        sendDataToPHP(data);
-      }
+    // Send the selected value to the PHP script for insertion
+    sendDataToPHP(data);
+  }
 
-      function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-      }
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
 
-      function sendDataToPHP(data) {
-        // Include the showid in the request body
-        const patientId = getParameterByName('showid');
-        data['showid'] = patientId;
+  function sendDataToPHP(data) {
+    // Include the showid in the request body
+    const patientId = getParameterByName('showid');
+    data['showid'] = patientId;
 
-        // Send data using fetch
-        fetch('fetch_chart.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(data => {
-            console.log('Data inserted successfully:', data);
-          })
-          .catch(error => {
-            console.error('There was a problem inserting the data:', error);
-          });
-      }
+    // Send data using fetch
+    fetch('fetch_chart.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Data inserted successfully:', data);
+      })
+      .catch(error => {
+        console.error('There was a problem inserting the data:', error);
+      });
+  }
     </script>
     <div class="inc-title-tt">
       <h2>Patient Status (Temporary Tooth / Upper box)</h2>
